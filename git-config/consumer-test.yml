@@ -1,0 +1,24 @@
+server:
+  port: 8773
+
+spring:
+  application:
+    name: consumer
+
+#注册中心的地址
+eureka:
+  client:
+    #    register-with-eureka: false  配置zuul时需要将服务消费者特注册到eureka中，不然找不到的。。。。
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+#开启容错
+feign:
+  hystrix:
+    enabled: true
+
+
+
+
+provider01:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule

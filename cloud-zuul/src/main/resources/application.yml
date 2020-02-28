@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: zuul
+
+server:
+  port: 8769
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+
+#\u914D\u7F6E\u8DEF\u7531\u529F\u80FD \u8F6C\u53D1\u3002\u3002
+zuul:
+  routes:
+    api-a:
+      path: /wangchaung/**
+      serviceId: consumer
+
+
