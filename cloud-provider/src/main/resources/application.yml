@@ -5,7 +5,7 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver #pgsql驱动
     password: 123456 #密码
-    url: jdbc:mysql://localhost:3306/test #url地址
+    url: jdbc:mysql://localhost:3306/test?serverTimezone=UTC  #url地址
     username: root #账号
   redis:
     database: 0   # Redis数据库索引（默认为0）

@@ -46,10 +46,10 @@ public class RedisTest {
         List<User> list = null;
         if (redisTemplate.hasKey("user")) {
             list = (List<User>) redisTemplate.opsForValue().get("user");
-            System.out.println("从缓存获取");
+            System.out.println("从缓存获取--------------------------------》");
             System.out.println(list);
         } else {
-            System.out.println("从数据库查，并存redis");
+            System.out.println("从数据库查，并存redis--------------------------------》");
             redisTemplate.opsForValue().set("user", userMapper.selectAll());
         }
     }
@@ -57,12 +57,12 @@ public class RedisTest {
     @Test
     public void hashTest() {
         if (redisTemplate.hasKey("user1")) {
-            System.out.println("缓存中有值");
-            Collection<Object> keys = new ArrayList<>();
-            keys.add("id");
-            keys.add("groupId");
-            keys.add("name");
-            keys.add("address");
+            System.out.println("缓存中有值--------------------------------》");
+//            Collection<Object> keys = new ArrayList<>();
+//            keys.add("id");
+//            keys.add("groupId");
+//            keys.add("name");
+//            keys.add("address");
             Map<Object, Object> entries = redisTemplate.opsForHash().entries("user1");
             Integer id = Integer.parseInt(entries.get("id").toString());
             Integer groupId =Integer.parseInt(entries.get("groupId").toString());
@@ -71,6 +71,7 @@ public class RedisTest {
             User build = User.builder().id(id).groupId(groupId).name(name).address(address).build();
             System.out.println(build);
         } else {
+            System.out.println("无缓存--------------------------------》");
             Map<String, String> data = new HashMap<>();
             User user = userMapper.selectByPrimaryKey(1);
             data.put("id", user.getId().toString());
@@ -78,6 +79,7 @@ public class RedisTest {
             data.put("name", user.getName());
             data.put("address", user.getAddress());
             redisTemplate.opsForHash().putAll("user1", data);
+            System.out.println("缓存成功--------------------------------》");
         }
 
 
