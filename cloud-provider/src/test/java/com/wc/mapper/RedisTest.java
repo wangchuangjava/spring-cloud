@@ -18,6 +18,8 @@ import java.util.*;
 
 /**
  * 操作redis样例
+ * Jedis是Redis官方推荐的面向Java的操作Redis的客户端，而RedisTemplate是SpringDataRedis中对JedisApi的高度封装。
+ * SpringDataRedis相对于Jedis来说可以方便地更换Redis的Java客户端，比Jedis多了自动管理连接池的特性，方便与其他Spring框架进行搭配使用
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = CloudProviderApplication.class)
@@ -65,7 +67,7 @@ public class RedisTest {
 //            keys.add("address");
             Map<Object, Object> entries = redisTemplate.opsForHash().entries("user1");
             Integer id = Integer.parseInt(entries.get("id").toString());
-            Integer groupId =Integer.parseInt(entries.get("groupId").toString());
+            Integer groupId = Integer.parseInt(entries.get("groupId").toString());
             String name = entries.get("name").toString();
             String address = entries.get("address").toString();
             User build = User.builder().id(id).groupId(groupId).name(name).address(address).build();
