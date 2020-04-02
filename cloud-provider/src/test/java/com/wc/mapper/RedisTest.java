@@ -36,7 +36,7 @@ public class RedisTest {
         //存值
         redisTemplate.opsForValue().set("sex", "nv");
         //通过key取值
-        Object name = redisTemplate.opsForValue().get("name");
+        Object name = redisTemplate.opsForValue().get("sex");
 
         System.out.println(name);
     }
