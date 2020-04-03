@@ -10,7 +10,7 @@ spring:
       label: master
       server:
         git:
-          uri: https://github.com/wangchuangjava/spring-cloud-demo.git
+          uri: https://github.com/wangchuangjava/spring-cloud.git
           search-paths: /spring-cloud/git-config
           username: wangchuangjob@163.com
           password: wzx997322
