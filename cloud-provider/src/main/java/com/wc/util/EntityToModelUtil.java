@@ -6,6 +6,9 @@ import com.wc.model.UserModel;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author 王创
+ */
 public class EntityToModelUtil {
     public static List<UserModel> entityToModel(List<User> list) {
         List<UserModel> userModelList = new ArrayList<>();

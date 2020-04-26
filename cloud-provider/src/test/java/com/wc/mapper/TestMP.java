@@ -70,7 +70,7 @@ public class TestMP {
         GlobalConfig config = new GlobalConfig();
         config.setActiveRecord(true) // 是否支持AR模式
                 .setAuthor("王创") // 作者
-                .setOutputDir("E:\\demo2\\src\\main\\java\\com\\zcf\\demo2") // 生成路径
+                .setOutputDir("E:\\demo\\src\\main\\java") // 生成路径
                 .setFileOverride(true)  // 文件覆盖D:\\workspace_mp\\mp03\\src\\main\\java
                 .setIdType(IdType.UUID) // 主键策略
                 .setServiceName("%sService")  // 设置生成的service接口的名字的首字母是否为I
@@ -82,9 +82,9 @@ public class TestMP {
         DataSourceConfig dsConfig = new DataSourceConfig();
         dsConfig.setDbType(DbType.MYSQL)  // 设置数据库类型
                 .setDriverName("com.mysql.cj.jdbc.Driver")
-                .setUrl("jdbc:mysql://101.200.228.203:3306/ennsafety_test?useUnicode=true&useSSL=false&serverTimezone=GMT&nullCatalogMeansCurrent=true&allowMultiQueries=true&characterEncoding=UTF8")
+                .setUrl("jdbc:mysql://101.200.228.203:3306/enn_safety?useUnicode=true&useSSL=false&serverTimezone=GMT&nullCatalogMeansCurrent=true&allowMultiQueries=true&characterEncoding=UTF8")
                 .setUsername("root")
-                .setPassword("jusafe123456");
+                .setPassword("Enn123456!");
 
         //3. 策略配置
         StrategyConfig stConfig = new StrategyConfig();
@@ -96,8 +96,8 @@ public class TestMP {
 
         //4. 包名策略配置
         PackageConfig pkConfig = new PackageConfig();
-        pkConfig.setParent("com.zcf")
-                .setEntity("pojo");
+        pkConfig.setParent("com.wc")
+                .setEntity("entity");
 
         //5. 整合配置
         AutoGenerator ag = new AutoGenerator();
