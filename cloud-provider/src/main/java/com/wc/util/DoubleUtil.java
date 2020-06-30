@@ -4,8 +4,10 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 /**
- * @author wangchuang
- */
+ * @Author 王创
+ * @Description 算法工具类
+ * @Date 10:39 2020/6/30
+ **/
 public final class DoubleUtil {
     /**
      * 默认除法运算精度

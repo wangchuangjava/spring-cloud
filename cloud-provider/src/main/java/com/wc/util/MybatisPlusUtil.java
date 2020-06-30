@@ -10,8 +10,10 @@ import com.baomidou.mybatisplus.generator.config.StrategyConfig;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 
 /**
- * @author 王创
- */
+ * @Author 王创
+ * @Description MybatisPlusUtil（代码生成器）
+ * @Date 10:41 2020/6/30
+ **/
 public class MybatisPlusUtil {
     public static void main(String[] args) {
         //1. 全局配置

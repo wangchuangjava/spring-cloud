@@ -12,25 +12,21 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * 
-* @ClassName: ExcelUtils
-* @Description: excle工具类
-* @author 王创
-* @date 2018年11月17日
-*
- */
+ * @Author 王创
+ * @Description Excel模板
+ * @Date 10:40 2020/6/30
+ **/
 public class ExcelUtils {
     /**
-     * 
-    * @Title: importData
-    * @Description: 导入excle 数据
-    * @param file  文件
-    * @param headerRows  忽略头行数
-    * @param pojoClass   转换的实体
-    * @return List<User>  返回的集合
+     * @param file       文件
+     * @param headerRows 忽略头行数
+     * @param pojoClass  转换的实体
+     * @return List<User>  返回的集合
+     * @Title: importData
+     * @Description: 导入excle 数据
      */
     public static <T> List<T> importData(MultipartFile file, Integer headerRows,
-                                         Class<T> pojoClass){
+                                         Class<T> pojoClass) {
         if (file == null) {
             return null;
         }
@@ -46,18 +42,17 @@ public class ExcelUtils {
         }
         return list;
     }
-    
+
     /**
-     * 
-    * @Title: exportExcel
-    * @Description: 导出excel
-    * @param list  导出的数据
-    * @param title  文件标题
-    * @param sheetName  sheet名称
-    * @param pojoClass  集合的类
-    * @param fileName   文件名
-    * @param response
-    * @return void
+     * @param list      导出的数据
+     * @param title     文件标题
+     * @param sheetName sheet名称
+     * @param pojoClass 集合的类
+     * @param fileName  文件名
+     * @param response
+     * @return void
+     * @Title: exportExcel
+     * @Description: 导出excel
      */
     public static void exportExcel(List<?> list, String title, String sheetName, Class<?> pojoClass, String fileName, HttpServletResponse response) {
         Workbook workbook = ExcelExportUtil.exportExcel(new ExportParams(title, sheetName), pojoClass, list);
@@ -72,5 +67,5 @@ public class ExcelUtils {
             }
         }
     }
-    
+
 }

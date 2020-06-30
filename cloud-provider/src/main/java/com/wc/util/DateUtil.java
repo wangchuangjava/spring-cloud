@@ -7,8 +7,10 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
- * wangchuang
- */
+ * @Author 王创
+ * @Description 时间工具类
+ * @Date 10:39 2020/6/30
+ **/
 public class DateUtil {
 
     // ==格式到年==

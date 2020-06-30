@@ -7,8 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author 王创
- */
+ * @Author 王创
+ * @Description 实体转VO
+ * @Date 10:40 2020/6/30
+ **/
 public class EntityToModelUtil {
     public static List<UserModel> entityToModel(List<User> list) {
         List<UserModel> userModelList = new ArrayList<>();
