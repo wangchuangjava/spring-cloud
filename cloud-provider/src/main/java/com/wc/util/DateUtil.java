@@ -7,7 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
- * @author wangchuang
+ * wangchuang
  */
 public class DateUtil {
 
@@ -183,11 +183,10 @@ public class DateUtil {
             DateFormat dateFormat = new SimpleDateFormat(timeFromat);
             return dateFormat.format(time);
         } catch (Exception e) {
-            if (defaultValue != null) {
+            if (defaultValue != null)
                 return parseDateToStr(defaultValue, timeFromat);
-            } else {
+            else
                 return parseDateToStr(new Date(), timeFromat);
-            }
         }
     }
 
@@ -276,19 +275,15 @@ public class DateUtil {
 
         for (Iterator iter = list.iterator(); iter.hasNext(); ) {
             String format = (String) iter.next();
-            if (strTime.indexOf("-") > 0 && format.indexOf("-") < 0) {
+            if (strTime.indexOf("-") > 0 && format.indexOf("-") < 0)
                 continue;
-            }
-            if (strTime.indexOf("-") < 0 && format.indexOf("-") > 0) {
+            if (strTime.indexOf("-") < 0 && format.indexOf("-") > 0)
                 continue;
-            }
-            if (strTime.length() > format.length()) {
+            if (strTime.length() > format.length())
                 continue;
-            }
             date = parseStrToDate(strTime, format);
-            if (date != null) {
+            if (date != null)
                 break;
-            }
         }
 
         return date;
@@ -432,7 +427,7 @@ public class DateUtil {
      * 获取某一年各星期的始终时间
      * 实例：getWeekList(2016)，第52周(从2016-12-26至2017-01-01)
      *
-     * @param 年份
+     * @param
      * @return
      */
     public static HashMap<Integer, String> getWeekTimeOfYear(int year) {
@@ -588,9 +583,8 @@ public class DateUtil {
         cal.setTime(date);
 
         int w = cal.get(Calendar.DAY_OF_WEEK) - 1;
-        if (w < 0) {
+        if (w < 0)
             w = 0;
-        }
 
         return weekDays[w];
     }
@@ -616,9 +610,8 @@ public class DateUtil {
      * @return null时返回false;true为日期，false不为日期
      */
     public static boolean validateIsDate(String strTime) {
-        if (strTime == null || strTime.trim().length() <= 0) {
+        if (strTime == null || strTime.trim().length() <= 0)
             return false;
-        }
 
         Date date = null;
         List<String> list = new ArrayList<String>(0);
@@ -637,19 +630,15 @@ public class DateUtil {
 
         for (Iterator iter = list.iterator(); iter.hasNext(); ) {
             String format = (String) iter.next();
-            if (strTime.indexOf("-") > 0 && format.indexOf("-") < 0) {
+            if (strTime.indexOf("-") > 0 && format.indexOf("-") < 0)
                 continue;
-            }
-            if (strTime.indexOf("-") < 0 && format.indexOf("-") > 0) {
+            if (strTime.indexOf("-") < 0 && format.indexOf("-") > 0)
                 continue;
-            }
-            if (strTime.length() > format.length()) {
+            if (strTime.length() > format.length())
                 continue;
-            }
             date = parseStrToDate(strTime.trim(), format);
-            if (date != null) {
+            if (date != null)
                 break;
-            }
         }
 
         if (date != null) {
@@ -728,9 +717,7 @@ public class DateUtil {
         if (year1 == year2) {
             int month1 = getMonth(date1);
             int month2 = getMonth(date2);
-            if (month1 == month2) {
-                flag = true;
-            }
+            if (month1 == month2) flag = true;
         }
         return flag;
     }
@@ -738,8 +725,8 @@ public class DateUtil {
     /**
      * 获得两个时间相差距离多少天多少小时多少分多少秒
      *
-     * @param str1 时间参数 1 格式：1990-01-01 12:00:00
-     * @param str2 时间参数 2 格式：2009-01-01 12:00:00
+     * @param one 时间参数 1 格式：1990-01-01 12:00:00
+     * @param two 时间参数 2 格式：2009-01-01 12:00:00
      * @return long[] 返回值为：{天, 时, 分, 秒}
      */
     public static long[] getDistanceTime(Date one, Date two) {
@@ -808,8 +795,8 @@ public class DateUtil {
     /**
      * 两个时间之间相差距离多少天
      *
-     * @param one 时间参数 1：
-     * @param two 时间参数 2：
+     * @param str1 时间参数 1：
+     * @param str2 时间参数 2：
      * @return 相差天数
      */
     public static Long getDistanceDays(String str1, String str2) throws Exception {
@@ -870,7 +857,7 @@ public class DateUtil {
     /**
      * 获取当前系统时间
      *
-     * @param args
+     * @param
      */
     public static String getNow() {
         DateFormat dateFormat = new SimpleDateFormat(DATE_TIME_FORMAT_YYYY_MM_DD_HH_MI_SS);
@@ -895,13 +882,30 @@ public class DateUtil {
     }
 
     /**
+     * 动态获取某个时间的前几天或者后几天
+     *
+     * @param pattern
+     * @param num     正数代表后 负数代表前
+     * @return
+     */
+    public static String getDate(String pattern, int num) {
+        Date date = DateUtil.strToDate(pattern);
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        cal.add(Calendar.DAY_OF_MONTH, num);
+        //Calendar转为Date类型
+        Date date1 = cal.getTime();
+        return DateUtil.parseDateToStr(date1, DATE_TIME_FORMAT_YYYY_MM_DD_HH_MI_SS);
+    }
+
+    /**
      * 计算出两个日期之间相差多少天()
      *
      * @Author: szc
      * @Date: 2020/5/13
      */
     public static Long daysBetween(String time1, String time2) {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DATE_TIME_FORMAT_YYYY_MM_DD_HH_MI_SS);
         Date date1 = null;
         Date date2 = null;
         try {
@@ -915,4 +919,59 @@ public class DateUtil {
         }
 
     }
+
+
+    /**
+     * 判断一个时间是否在某一个时间段的范围内
+     *
+     * @param nowDate   要比较的时间
+     * @param startDate 开始时间
+     * @param endDate   结束时间
+     * @return true在时间段内，false不在时间段内
+     * @throws Exception
+     */
+    public static boolean hourMinuteBetween(String nowDate, String startDate, String endDate) {
+
+        SimpleDateFormat format = new SimpleDateFormat(DATE_TIME_FORMAT_YYYY_MM_DD_HH_MI_SS);
+
+        Date now = null;
+        Date start = null;
+        Date end = null;
+        try {
+            now = format.parse(nowDate);
+            start = format.parse(startDate);
+            end = format.parse(endDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        long nowTime = now.getTime();
+        long startTime = start.getTime();
+        long endTime = end.getTime();
+
+        return nowTime >= startTime && nowTime <= endTime;
+
+
+//        if (now.getTime() == start.getTime()
+//                || now.getTime() == end.getTime()) {
+//            return true;
+//        }
+//
+//        Calendar date = Calendar.getInstance();
+//        date.setTime(now);
+//
+//        Calendar begin = Calendar.getInstance();
+//        begin.setTime(start);
+//
+//        Calendar end1 = Calendar.getInstance();
+//        end1.setTime(end);
+//
+//        if (date.after(begin) && date.before(end)) {
+//            return true;
+//        } else {
+//            return false;
+//        }
+
+    }
 }
+
