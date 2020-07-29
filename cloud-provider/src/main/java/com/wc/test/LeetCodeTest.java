@@ -50,4 +50,36 @@ public class LeetCodeTest {
         }
     }
 
+
+    @Test
+    public void testTwo() {
+        //给出一个 32 位的有符号整数，你需要将这个整数中每位上的数字进行反转。
+        int x = 1230;
+        if (x == 0) {
+//            return 0;
+            System.out.println(0);
+        }
+        if (x > (Math.pow(2, 31)) - 1 || x < (-1 * Math.pow(2, 31))) {
+//            return 0;
+            System.out.println(0);
+
+        }
+        long sum = 0;
+        while (x != 0) {
+            sum = sum * 10 + x % 10;
+            System.out.println(sum);
+            x = x / 10;
+            System.out.println(x);
+        }
+        if (sum > (Math.pow(2, 31)) - 1 || sum < (-1 * Math.pow(2, 31))) {
+//            return 0;
+            System.out.println(0);
+
+        } else {
+//            return (int) sum;
+            System.out.println(sum);
+
+        }
+    }
+
 }
