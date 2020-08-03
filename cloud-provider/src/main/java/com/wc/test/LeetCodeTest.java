@@ -2,9 +2,7 @@ package com.wc.test;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 /**
  * @description:
@@ -80,6 +78,16 @@ public class LeetCodeTest {
             System.out.println(sum);
 
         }
+    }
+
+    @Test
+    public void onlyRead() {
+        List<Integer> list = new ArrayList<>();
+        list.add(1);
+        //修改为只读
+        Collection<Integer> integers = Collections.unmodifiableCollection(list);
+//        integers.add(2);
+        System.out.println(integers);
     }
 
 }
