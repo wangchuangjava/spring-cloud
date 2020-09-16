@@ -32,15 +32,15 @@ public class MybatisPlusUtil {
         DataSourceConfig dsConfig = new DataSourceConfig();
         dsConfig.setDbType(DbType.MYSQL)  // 设置数据库类型
                 .setDriverName("com.mysql.cj.jdbc.Driver")
-                .setUrl("jdbc:mysql://121.196.24.122:3306/activity_month?useUnicode=true&useSSL=false&serverTimezone=GMT&nullCatalogMeansCurrent=true&allowMultiQueries=true&characterEncoding=UTF8")
+                .setUrl("jdbc:mysql://localhost/safe-cloud?useUnicode=true&useSSL=false&serverTimezone=GMT&nullCatalogMeansCurrent=true&allowMultiQueries=true&characterEncoding=UTF8")
                 .setUsername("root")
-                .setPassword("Jusafe123456!");
+                .setPassword("123456");
 
         //3. 策略配置
         StrategyConfig stConfig = new StrategyConfig();
         stConfig.setCapitalMode(true) //全局大写命名
 //				.setDbColumnUnderline(true)  // 指定表名 字段名是否使用下划线
-                .setNaming(NamingStrategy.underline_to_camel).setInclude("activity", "answer", "category", "level", "level_historical","select_topic","topic");  // 数据库表映射到实体的命名策略
+                .setNaming(NamingStrategy.underline_to_camel).setInclude("test_user");  // 数据库表映射到实体的命名策略
 //				.setTablePrefix("tbl_")
         // 生成的表
 
