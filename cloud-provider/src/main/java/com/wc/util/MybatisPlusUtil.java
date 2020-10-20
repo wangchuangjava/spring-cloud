@@ -40,14 +40,15 @@ public class MybatisPlusUtil {
         StrategyConfig stConfig = new StrategyConfig();
         stConfig.setCapitalMode(true) //全局大写命名
 //				.setDbColumnUnderline(true)  // 指定表名 字段名是否使用下划线
-                .setNaming(NamingStrategy.underline_to_camel).setInclude("test_user");  // 数据库表映射到实体的命名策略
+                .setNaming(NamingStrategy.underline_to_camel).setInclude("salary_norm");  // 数据库表映射到实体的命名策略
 //				.setTablePrefix("tbl_")
         // 生成的表
 
         //4. 包名策略配置
         PackageConfig pkConfig = new PackageConfig();
-        pkConfig.setParent("com.wc")
-                .setEntity("entity");
+        pkConfig.setParent("io.renren")
+                .setEntity("entity")
+                .setMapper("dao").setXml("dao.xml");
 
         //5. 整合配置
         AutoGenerator ag = new AutoGenerator();
