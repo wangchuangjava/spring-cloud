@@ -54,20 +54,38 @@ public class TreeUtils {
         //list转map
         Map<Long, T> nodeMap = new LinkedHashMap<>(treeNodes.size());
         for(T treeNode : treeNodes){
+            //key=id  value=自己本身
             nodeMap.put(treeNode.getId(), treeNode);
         }
 
         for(T node : nodeMap.values()) {
+            //获取元素的上级组织
             T parent = nodeMap.get(node.getPid());
+            //如果有上级组织将自己放入children中
             if(parent != null && !(node.getId().equals(parent.getId()))){
                 parent.getChildren().add(node);
                 continue;
             }
-
             result.add(node);
         }
 
         return result;
+    }
+
+    public static void main(String[] args) {
+        //自测demo
+        List<TestNode> testNodes=new ArrayList<>();
+        TestNode testNode = new TestNode(1L,0L,"最上级");
+        TestNode testNode1 = new TestNode(222L,1L,"下级1");
+        TestNode testNode2 = new TestNode(333L,1L,"下级2");
+        TestNode testNode3 = new TestNode(2221L,222L,"下级12");
+        testNodes.add(testNode1);
+        testNodes.add(testNode2);
+        testNodes.add(testNode);
+        testNodes.add(testNode3);
+
+        List<TestNode> build = TreeUtils.build(testNodes);
+        System.out.println(build);
     }
 
 }
