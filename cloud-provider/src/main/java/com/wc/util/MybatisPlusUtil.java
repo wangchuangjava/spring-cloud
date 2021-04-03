@@ -22,7 +22,7 @@ public class MybatisPlusUtil {
                 .setAuthor("王创") // 作者
                 .setOutputDir("E:\\demo\\src\\main\\java") // 生成路径
                 .setFileOverride(true)  // 文件覆盖D:\\workspace_mp\\mp03\\src\\main\\java
-                .setIdType(IdType.UUID) // 主键策略
+                .setIdType(IdType.ASSIGN_ID) // 主键策略
                 .setServiceName("%sService")  // 设置生成的service接口的名字的首字母是否为I
                 // IEmployeeService
                 .setBaseResultMap(true)
@@ -32,15 +32,15 @@ public class MybatisPlusUtil {
         DataSourceConfig dsConfig = new DataSourceConfig();
         dsConfig.setDbType(DbType.MYSQL)  // 设置数据库类型
                 .setDriverName("com.mysql.cj.jdbc.Driver")
-                .setUrl("jdbc:mysql://localhost/safe-cloud?useUnicode=true&useSSL=false&serverTimezone=GMT&nullCatalogMeansCurrent=true&allowMultiQueries=true&characterEncoding=UTF8")
+                .setUrl("jdbc:mysql://121.196.24.122:3306/enn_safety_huge_profits?useUnicode=true&useSSL=false&serverTimezone=GMT&nullCatalogMeansCurrent=true&allowMultiQueries=true&characterEncoding=UTF8")
                 .setUsername("root")
-                .setPassword("123456");
+                .setPassword("Jusafe123456!");
 
         //3. 策略配置
         StrategyConfig stConfig = new StrategyConfig();
         stConfig.setCapitalMode(true) //全局大写命名
 //				.setDbColumnUnderline(true)  // 指定表名 字段名是否使用下划线
-                .setNaming(NamingStrategy.underline_to_camel).setInclude("salary_norm");  // 数据库表映射到实体的命名策略
+                .setNaming(NamingStrategy.underline_to_camel).setInclude("safe_menus_car","safe_menus_child_car");  // 数据库表映射到实体的命名策略
 //				.setTablePrefix("tbl_")
         // 生成的表
 
