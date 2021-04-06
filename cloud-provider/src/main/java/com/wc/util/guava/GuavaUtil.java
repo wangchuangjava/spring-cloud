@@ -4,7 +4,9 @@ import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.google.common.collect.Sets;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * 王创
@@ -39,5 +41,17 @@ public class GuavaUtil {
 //        Sets.SetView difference = Sets.difference(setA, setB);
 //        //交集
 //        Sets.SetView intersection = Sets.intersection(setA, setB);
+    }
+
+    public static void main(String[] args) {
+        Set<Long> newChild = new HashSet<>();
+        newChild.add(1L);
+        newChild.add(2L);
+        newChild.add(3L);
+        Set<Long> newCollect = new HashSet<>();
+        newCollect.add(1L);
+        newCollect.add(2L);
+        Sets.SetView difference = Sets.difference(newChild, newCollect);
+        System.out.println(difference);
     }
 }
