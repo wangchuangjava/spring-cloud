@@ -90,4 +90,22 @@ public class LeetCodeTest {
         System.out.println(integers);
     }
 
+    @Test
+    public void 冒泡排序() {
+        int[] numbers = new int[]{100, 22, 33, 9999, 6, 66};
+        for (int i = 0; i < numbers.length - 1; i++) {
+            for (int j = 0; j < numbers.length - 1 - i; j++) {
+                if (numbers[j] > numbers[j + 1]) {
+                    int item = numbers[j];
+                    numbers[j] = numbers[j + 1];
+                    numbers[j + 1] = item;
+                }
+            }
+
+        }
+        for (int number : numbers) {
+            System.out.println(number);
+        }
+
+    }
 }
