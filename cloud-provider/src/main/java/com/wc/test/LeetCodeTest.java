@@ -119,7 +119,11 @@ public class LeetCodeTest {
         Iterator<Integer> iterator = list.iterator();
         while (iterator.hasNext()) {
             Integer next = iterator.next();
+            if (next == 4) {
+                iterator.remove();
+            }
             System.out.println(next);
         }
+        System.out.println(list.toString());
     }
 }
