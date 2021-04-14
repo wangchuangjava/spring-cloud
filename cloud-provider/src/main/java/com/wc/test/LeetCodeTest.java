@@ -108,4 +108,18 @@ public class LeetCodeTest {
         }
 
     }
+
+    @Test
+    public void 迭代器遍历集合() {
+        List<Integer> list = new LinkedList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(4);
+        Iterator<Integer> iterator = list.iterator();
+        while (iterator.hasNext()) {
+            Integer next = iterator.next();
+            System.out.println(next);
+        }
+    }
 }
