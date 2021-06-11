@@ -28,7 +28,7 @@ import java.util.UUID;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/ali/pay")
-public class PayController {
+public class 曹足足给的支付demo {
 
     /**
      * 支付

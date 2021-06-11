@@ -15,9 +15,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * 官方调用示例
+ */
 @Slf4j
 @Controller
-public class 统一收单下单并支付页面接口 {
+public class 支付宝官方支付demo {
     private final String APP_ID = "appId";
     private final String APP_PRIVATE_KEY = "app私钥";
     private final String CHARSET = "UTF-8";
