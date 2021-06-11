@@ -91,6 +91,14 @@
             <version>2.9.10.7</version>
         </dependency>
 
+        <!--支付宝支付-->
+        <dependency>
+            <groupId>com.alipay.sdk</groupId>
+            <artifactId>alipay-sdk-java</artifactId>
+            <version>4.13.58.ALL</version>
+        </dependency>
+
+
         <!--封装了redis的java客户端-->
         <!--        <dependency>-->
         <!--            <groupId>redis.clients</groupId>-->
